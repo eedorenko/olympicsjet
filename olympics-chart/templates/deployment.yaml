@@ -3,13 +3,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: olympics-fe
-  namespace: efedorenko
+  name: "{{ .Values.deployment.name }}"
+  namespace: "{{ .Values.namespace }}"
   labels:
-    run: olympics-fe
+    run: "{{ .Values.deployment.name }}"
     version: blue
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
